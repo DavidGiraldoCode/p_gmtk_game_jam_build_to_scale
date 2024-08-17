@@ -122,18 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &83613968 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9043472855445142480, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-    type: 3}
-  m_PrefabInstance: {fileID: 3870554654313631836}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a821d78009e884d16b1b171121b4f9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &867880198
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +257,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_rayTracerController
       value: 
-      objectReference: {fileID: 83613968}
+      objectReference: {fileID: 1981859334}
     - target: {fileID: 5491071007417096679, guid: 5a99a567bfdc049c6ad9e42ec33e8c38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -330,6 +318,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a99a567bfdc049c6ad9e42ec33e8c38, type: 3}
+--- !u!114 &1981859334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1664456161341076700, guid: 0b72dde07d1de4d959dc9cba5e000d45,
+    type: 3}
+  m_PrefabInstance: {fileID: 3870554654313631836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a821d78009e884d16b1b171121b4f9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079504001
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,130 +419,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3215114729680193265, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Name
-      value: StretchRayBeam
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.21787111
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.9056604
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.81233674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.07450986
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key2.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key2.r
-      value: 0.07450986
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.m_NumColorKeys
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.53730094
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.16666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
-      value: -0.00889044
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
-      value: 0.044719175
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
-      value: -0.00889044
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
-      value: 0.17747438
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
-      value: 0.044719175
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824807147646587260, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
-      value: 0.6931818
-      objectReference: {fileID: 0}
     - target: {fileID: 8670343125327971363, guid: 0b72dde07d1de4d959dc9cba5e000d45,
         type: 3}
       propertyPath: m_Name
       value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 9043472855445142480, guid: 0b72dde07d1de4d959dc9cba5e000d45,
-        type: 3}
-      propertyPath: m_displacementSpeed
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,7 +10,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Add soundFX on shrinking, stretching (use the scale factor to alter pitch)
 - [-] Make the scaling a behaviour  
 - [x] Create gun mechanics: shoot a ray, visual FX for both types of scaling
-- [ ] Add gun sound FX
+- [x] Add gun sound FX
 - [ ] Add gun cool down before next shoot
 - [ ] Add gun animations
 - [ ] Implement a FS movement: walking and looking
