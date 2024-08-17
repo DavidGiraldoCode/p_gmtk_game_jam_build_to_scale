@@ -12,7 +12,8 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Create gun mechanics: shoot a ray, visual FX for both types of scaling
 - [x] Add gun sound FX
 - [~] Add gun cool down before next shoot
-- [ ] Gun diegetic HUD
+- [x] Gun diegetic HUD
+- [ ] Add particles when shooting the ray
 - [ ] Review timing between shooting and scaling
 - [ ] Add gun animations
 - [ ] Implement a FS movement: walking and looking
