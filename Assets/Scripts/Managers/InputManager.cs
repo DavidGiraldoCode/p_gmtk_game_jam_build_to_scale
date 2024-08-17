@@ -93,13 +93,13 @@ public class InputManager : MonoBehaviour
     {
         // if (!so_spellCastState.CastMode)
         // {
-            Instance.Look = context.ReadValue<Vector2>();
+        Instance.Look = context.ReadValue<Vector2>();
         // }
 
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             Debug.Log(context.ReadValue<float>());
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -108,9 +108,14 @@ public class InputManager : MonoBehaviour
             {
                 Debug.DrawLine(ray.origin, hit.point);
                 Debug.Log(hit.collider.gameObject.name);
-                Rigidbody selectedDiskRB;
-                if (!hit.collider) return;
-                if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
+                GameObject geometry = hit.collider.gameObject;
+                //geometry.GetComponent<ScalingController>().TriggerScaling(2);
+                ScalingController scaler;
+                if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
+                scaler.TriggerScaling(2);
+                // Rigidbody selectedDiskRB;
+                // if (!hit.collider) return;
+                // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
             }
 
         }
