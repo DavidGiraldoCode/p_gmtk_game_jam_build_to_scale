@@ -11,12 +11,15 @@ public class ScalingController : MonoBehaviour
     private Rigidbody m_rigidbody;
     [Header("Scaling controllers")]
 
-    [SerializeField] float m_interpolationSpeed = 5.0f;
+    [SerializeField] private float m_interpolationSpeed = 5.0f;
+    [SerializeField] private ScalingAudioFX m_scalingAudioFX;
     private float m_t = 0.0f;
 
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        if (!m_scalingAudioFX)
+            m_scalingAudioFX = GetComponent<ScalingAudioFX>();
     }
     public void TriggerScaling(float scaleFactor)
     {
@@ -24,6 +27,11 @@ public class ScalingController : MonoBehaviour
 
         m_currentScale = m_rigidbody.transform.localScale;
         m_newTargetScaleFactor = scaleFactor;
+
+        if (scaleFactor > 1.0f)
+            m_scalingAudioFX.PlayStretch(scaleFactor - 0.05f);
+        else
+            m_scalingAudioFX.PlayShrink(scaleFactor - 0.05f);
 
         m_wasTriggered = true;
         m_isScaling = true;
