@@ -2,5 +2,10 @@
 A FPS puzzle game where you have to scape rooms using a scaling gun.
 
 ## Backlog
-- [ ] Scaling power
-- [ ] Ease scaling effect
+- [x] Scaling power
+- [x] Ease scaling effect
+- [ ] Remove GameObject once they reach a scale threshold
+- [ ] Change the scalling factor with scroll.
+- [ ] Shake the camera on every scalling
+- [ ] Create a partice system where the Geometry disapeared
+- [ ] Add soundFX on shrinking, stretching, disapearing from shrinking and stretching.
