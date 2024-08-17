@@ -7,7 +7,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Change the scalling factor with scroll.
 - [x] Apply scaling effect with current scaling factor.
 - [x] Left click to stretch and Right click to shrink.
-- [ ] Add soundFX on shrinking, stretching
+- [x] Add soundFX on shrinking, stretching (use the scale factor to alter pitch)
 - [ ] Shake the camera on every scalling
 - [ ] Remove GameObject once they reach a scale threshold
 - [ ] Add soundFX on disapearing from shrinking and stretching.

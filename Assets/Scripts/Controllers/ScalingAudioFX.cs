@@ -13,15 +13,17 @@ public class ScalingAudioFX : MonoBehaviour
         m_audioSource.volume = 0.1f;
     }
 
-    public void PlayShrink()
+    public void PlayShrink(float pitch)
     {
         m_audioSource.Stop();
+        m_audioSource.pitch = pitch;
         m_audioSource.clip = so_soundFX.Shrink;
         m_audioSource.Play();
     }
-    public void PlayStretch()
+    public void PlayStretch(float pitch)
     {
         m_audioSource.Stop();
+        m_audioSource.pitch = pitch;
         m_audioSource.clip = so_soundFX.Stretch;
         m_audioSource.Play();
     }

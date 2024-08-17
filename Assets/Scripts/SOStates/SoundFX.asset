@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a035cc0429cce4a8cab9e6e94b4eb3b6, type: 3}
   m_Name: SoundFX
   m_EditorClassIdentifier: 
-  m_shrinkSoundFX: {fileID: 8300000, guid: c915969215d444c8684702e33ac65d62, type: 3}
-  m_stretchSoundFX: {fileID: 8300000, guid: 2c0186f1cce924b61a37d435747245fc, type: 3}
+  m_shrinkSoundFX: {fileID: 8300000, guid: 2c0186f1cce924b61a37d435747245fc, type: 3}
+  m_stretchSoundFX: {fileID: 8300000, guid: c915969215d444c8684702e33ac65d62, type: 3}
