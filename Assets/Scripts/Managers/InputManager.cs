@@ -1,10 +1,12 @@
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
-    //[SerializeField] private SpellCastState so_spellCastState;
+    [SerializeField] private PlayerState so_playerState;
+    [SerializeField] private ScalingProvider m_scalingProvider;
     private float m_startEvent; // A bool triggered by the Space bar to test anything
     private Vector2 m_direction; // Unit 2D vector, default state is [0,0]
     private Vector2 m_pointer;
@@ -50,6 +52,7 @@ public class InputManager : MonoBehaviour
     }
     private void Awake()
     {
+        so_playerState.Init();
         if (!Instance)
         {
             Instance = this;
@@ -112,12 +115,37 @@ public class InputManager : MonoBehaviour
                 //geometry.GetComponent<ScalingController>().TriggerScaling(2);
                 ScalingController scaler;
                 if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
-                scaler.TriggerScaling(0.5f);
+                scaler.TriggerScaling(1f + so_playerState.CurrentScaleFactor);
                 // Rigidbody selectedDiskRB;
                 // if (!hit.collider) return;
                 // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
             }
 
+        }
+    }
+    //TODO Left click to stretch and Right click to shrink.
+    public void OnStretch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            m_scalingProvider.ShootScalingRay(1.0f, Mouse.current.position.ReadValue());
+        }
+    }
+    public void OnShrink(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            m_scalingProvider.ShootScalingRay(-1.0f, Mouse.current.position.ReadValue());
+        }
+    }
+    public void OnScroll(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (context.ReadValue<Vector2>().y > 0f)
+                so_playerState.ChangeFactor(1);
+            if (context.ReadValue<Vector2>().y < 0f)
+                so_playerState.ChangeFactor(-1);
         }
     }
     /// <summary>
