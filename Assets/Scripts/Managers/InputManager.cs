@@ -101,18 +101,18 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log(context.ReadValue<float>());
+            //Debug.Log(context.ReadValue<float>());
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.DrawLine(ray.origin, hit.point);
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.DrawLine(ray.origin, hit.point);
+                //Debug.Log(hit.collider.gameObject.name);
                 GameObject geometry = hit.collider.gameObject;
                 //geometry.GetComponent<ScalingController>().TriggerScaling(2);
                 ScalingController scaler;
                 if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
-                scaler.TriggerScaling(2);
+                scaler.TriggerScaling(2.5f);
                 // Rigidbody selectedDiskRB;
                 // if (!hit.collider) return;
                 // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
