@@ -130,7 +130,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             m_scalingProvider.ShootScalingRay(1.0f, Mouse.current.position.ReadValue());
-            m_rayTracerController.ShootRayBeam(1.0f);
+            //m_rayTracerController.ShootRayBeam(1.0f);
         }
     }
     public void OnShrink(InputAction.CallbackContext context)
@@ -138,7 +138,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             m_scalingProvider.ShootScalingRay(-1.0f, Mouse.current.position.ReadValue());
-            m_rayTracerController.ShootRayBeam(-1.0f);
+            // m_rayTracerController.ShootRayBeam(-1.0f);
         }
     }
     //TODO Ray visual efect
