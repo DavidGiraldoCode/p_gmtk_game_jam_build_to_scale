@@ -14,7 +14,6 @@ public class ScalingController : MonoBehaviour
     [SerializeField] float m_interpolationSpeed = 5.0f;
     private float m_t = 0.0f;
 
-    //TODO
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
