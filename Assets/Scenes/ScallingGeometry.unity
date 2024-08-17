@@ -1334,6 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   so_playerState: {fileID: 11400000, guid: 32f77c0dc5fba4ac9a1f22e4e7b76872, type: 2}
+  m_scalingProvider: {fileID: 912379801}
 --- !u!114 &912379799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,8 +1373,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 912379798}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnFire
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1440,6 +1441,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7444f33a-b0a4-4a07-98a4-7b57ba96e29e
     m_ActionName: Player/Scroll[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 912379798}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnStretch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 160957d7-d799-465c-aa91-ed848f4dcc23
+    m_ActionName: Player/Stretch[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 912379798}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnShrink
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2803fcb2-0fa7-4313-9890-95565c8ce3d8
+    m_ActionName: Player/Shrink[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1472,6 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60254e414d2744479b56e2beb02b28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  so_playerState: {fileID: 11400000, guid: 32f77c0dc5fba4ac9a1f22e4e7b76872, type: 2}
 --- !u!1 &1163483400
 GameObject:
   m_ObjectHideFlags: 0

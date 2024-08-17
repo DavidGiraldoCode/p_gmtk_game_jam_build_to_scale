@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ScalingProvider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerState so_playerState;
+    public void ShootScalingRay(float sign, Vector2 screenPoint)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Ray ray = Camera.main.ScreenPointToRay(screenPoint);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject geometry = hit.collider.gameObject;
+            ScalingController scaler;
+            if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
+            float scaleFactor = 1.0f + (so_playerState.CurrentScaleFactor * sign);
+            scaler.TriggerScaling(scaleFactor);
+        }
     }
 }

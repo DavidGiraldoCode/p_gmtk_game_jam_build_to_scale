@@ -18,16 +18,16 @@ public class ScalingController : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody>();
     }
-    public void TriggerScaling(float factor)
+    public void TriggerScaling(float scaleFactor)
     {
         if (m_isScaling) return;
 
         m_currentScale = m_rigidbody.transform.localScale;
-        m_newTargetScaleFactor = factor;
+        m_newTargetScaleFactor = scaleFactor;
 
         m_wasTriggered = true;
         m_isScaling = true;
-        Debug.Log("Triggering scalling at " + factor);
+        Debug.Log("Triggering scalling at " + scaleFactor);
     }
 
     private void FixedUpdate()
