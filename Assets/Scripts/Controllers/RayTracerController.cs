@@ -5,6 +5,7 @@ public class RayTracerController : MonoBehaviour
 {
     [SerializeField] private Transform m_raySpawnPointAtGun;
     [SerializeField] private LineRenderer m_lineRenderer;
+    [SerializeField] private BeamAudioFX m_beamAudioFX;
     private Vector3[] m_beamPoints;
     private bool m_hasShoot = false;
     [SerializeField] private float m_displacementSpeed = 1.0f;
@@ -26,11 +27,13 @@ public class RayTracerController : MonoBehaviour
         {
             m_lineRenderer.startColor = Color.yellow;
             m_lineRenderer.endColor = Color.red;
+            m_beamAudioFX.PlayShrink();
         }
         else
         {
             m_lineRenderer.startColor = Color.blue;
             m_lineRenderer.endColor = Color.green;
+            m_beamAudioFX.PlayStretch();
         }
 
         m_ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));

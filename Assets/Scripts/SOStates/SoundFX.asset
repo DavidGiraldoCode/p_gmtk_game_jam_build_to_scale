@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_shrinkSoundFX: {fileID: 8300000, guid: 2c0186f1cce924b61a37d435747245fc, type: 3}
   m_stretchSoundFX: {fileID: 8300000, guid: c915969215d444c8684702e33ac65d62, type: 3}
+  m_shrinkBeamSoundFX: {fileID: 8300000, guid: 2c0186f1cce924b61a37d435747245fc, type: 3}
+  m_stretchBeamSoundFX: {fileID: 8300000, guid: c915969215d444c8684702e33ac65d62,
+    type: 3}
