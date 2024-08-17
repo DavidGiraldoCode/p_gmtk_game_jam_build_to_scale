@@ -3,21 +3,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerState", menuName = "PlayerState", order = 0)]
 public class PlayerState : ScriptableObject
 {
-    [SerializeField] private int m_currentScaleFactor = 0;
+    [SerializeField] private int m_currentScaleFactorIndex = 0;
     [SerializeField] private int m_numberOfScalingFactors = 3;
     [SerializeField] private float m_rateOfScale = 0.25f;
     [SerializeField] private float[] m_scaleFactors;
-    public int CurrentScaleFactor //TODO this will be removed, this variables is change with a method
+    public float CurrentScaleFactor //TODO this will be removed, this variables is change with a method
     {
-        get => m_currentScaleFactor;
-        set
+        get 
         {
-            m_currentScaleFactor = value > m_numberOfScalingFactors - 1 ? m_currentScaleFactor : value;
+            return m_currentScaleFactorIndex < m_scaleFactors.Length ? m_scaleFactors[m_currentScaleFactorIndex] : 1.0f;
         }
+        // set
+        // {
+        //     m_currentScaleFactorIndex = value > m_numberOfScalingFactors - 1 ? m_currentScaleFactorIndex : value;
+        // }
     }
     public void Init()
     {
-        m_currentScaleFactor = 0;
+        m_currentScaleFactorIndex = 0;
         m_scaleFactors = new float[m_numberOfScalingFactors];
         for (int i = 0; i < m_numberOfScalingFactors; i++)
         {
@@ -27,13 +30,13 @@ public class PlayerState : ScriptableObject
 
     public void ChangeFactor(int sign)
     {
-        if (sign < 0 && m_currentScaleFactor > 0)
+        if (sign < 0 && m_currentScaleFactorIndex > 0)
         {
-            m_currentScaleFactor--;
+            m_currentScaleFactorIndex--;
         }
-        else if (sign > 0 && m_currentScaleFactor < m_numberOfScalingFactors - 1)
+        else if (sign > 0 && m_currentScaleFactorIndex < m_numberOfScalingFactors - 1)
         {
-            m_currentScaleFactor++;
+            m_currentScaleFactorIndex++;
         }
     }
 }
