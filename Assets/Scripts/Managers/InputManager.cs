@@ -112,7 +112,7 @@ public class InputManager : MonoBehaviour
                 //geometry.GetComponent<ScalingController>().TriggerScaling(2);
                 ScalingController scaler;
                 if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
-                scaler.TriggerScaling(2.5f);
+                scaler.TriggerScaling(0.5f);
                 // Rigidbody selectedDiskRB;
                 // if (!hit.collider) return;
                 // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
