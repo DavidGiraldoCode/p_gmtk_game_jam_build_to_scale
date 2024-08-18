@@ -2,28 +2,33 @@ using UnityEngine;
 public class RayTracerController : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
+    [Header("References")]
+    [SerializeField] private GameObject m_rayBeamPrefab;
     [SerializeField] private Transform m_beamOriginAtGun;
+    [SerializeField] private ExitParticlesController m_exitParticles;
+
+    [Header("Settings")]
+    [SerializeField] private float m_rayReach = 30.0f; //TODO set this in PlayerState
+
+    private bool m_hasShoot = false;
+    private float m_displacement = 0.0f;
+    private Vector3 m_beamMagnitud;
+    private Ray m_ray;
     //TODO --------- Place in an independent RayBeam GO
+    [Header("Testing --------------")]
     [SerializeField] private BeamAudioFX m_beamAudioFX;
+
+    [SerializeField] private float m_displacementSpeed = 20.0f;
     private Vector3[] m_beamPoints;
     private Vector3 m_hitPoint;
     //Add RayBeamPrefab
     [SerializeField] private LineRenderer m_lineRenderer;
     [SerializeField] private BeamImpactParticle m_beamImpactParticle;
     //TODO ----------
-
-    [SerializeField] private ExitParticlesController m_exitParticles;
-
-    private bool m_hasShoot = false;
-    [SerializeField] private float m_displacementSpeed = 20.0f;
-    [SerializeField] private float m_rayReach = 30.0f; //TODO set this in PlayerState
-    private float m_displacement = 0.0f;
-    private Vector3 m_beamMagnitud;
-    private Ray m_ray;
     private void Awake()
     {
         m_lineRenderer.positionCount = 2; //TODO move to independent RayBeam GO
-        m_beamPoints = new Vector3[m_lineRenderer.positionCount];
+        m_beamPoints = new Vector3[m_lineRenderer.positionCount]; //TODO move to independent RayBeam GO
         //TODO move to independent RayBeam GO
 
         //m_displacementSpeed = 20.0f;//so_playerState.CoolDown; 
@@ -40,6 +45,11 @@ public class RayTracerController : MonoBehaviour
         if (!m_beamOriginAtGun) return;
         m_hasShoot = true;
         m_exitParticles.Emit(sign, m_beamOriginAtGun.position);
+
+        GameObject rayBeam = Instantiate(m_rayBeamPrefab, m_beamOriginAtGun.position, m_rayBeamPrefab.transform.rotation);
+        rayBeam.GetComponent<RayBeamController>().HitPoint = hitPoint;
+        rayBeam.GetComponent<RayBeamController>().Sign = sign;
+        //? The RayBeam Gets removed when the displacement ends. Destroy(rayBeam, 2.0f);
 
         //TODO place all of this inside independe RayBeam GO
         m_hitPoint = hitPoint;
@@ -97,7 +107,7 @@ public class RayTracerController : MonoBehaviour
         if (!m_impactWavesParticlesPrefab) return;
 
         GameObject impactParticles = Instantiate(m_impactWavesParticlesPrefab, hitPoint, m_impactWavesParticlesPrefab.transform.rotation);
-        
+
         //* Defining color
 
         var impactWavesCol = impactParticles.GetComponent<ParticleSystem>().colorOverLifetime;
