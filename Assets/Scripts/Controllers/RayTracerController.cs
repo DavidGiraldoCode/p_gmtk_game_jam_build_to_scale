@@ -40,11 +40,13 @@ public class RayTracerController : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!m_hasShoot) return;
         BeamDisplacementAcrossRay();
     }
+    //TODO WIP
+    [SerializeField] GameObject m_beamHeadIndicator;
     public void BeamDisplacementAcrossRay()
     {
         m_beamMagnitud = m_ray.direction.normalized * 5f;
@@ -53,6 +55,7 @@ public class RayTracerController : MonoBehaviour
         m_lineRenderer.SetPositions(m_beamPoints);
         displacement += m_displacementSpeed * Time.deltaTime;
 
+        m_beamHeadIndicator.transform.position = m_beamPoints[1];
         //Debug.Log(displacement);
         if (displacement < m_rayReach) return;
         m_beamPoints[0] = m_beamOriginAtGun.position;

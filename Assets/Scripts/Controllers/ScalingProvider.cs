@@ -28,8 +28,8 @@ public class ScalingProvider : MonoBehaviour
         if (!m_readyToShoot) return;
         m_rayTracerController.ShootRayBeam(sign);
         
-        Debug.Log("Shooting");
-        Debug.Log(sign);
+        //Debug.Log("Shooting");
+        //Debug.Log(sign);
 
         Ray ray = Camera.main.ScreenPointToRay(screenPoint);
         RaycastHit hit;
