@@ -10,6 +10,8 @@ public class PlayerState : ScriptableObject
     [SerializeField] private float m_coolDown = 1.0f;
     [SerializeField] private bool m_readyToShoot = true;
     [SerializeField]  private float m_rayReach = 30.0f;
+    [SerializeField] private float m_walkingSpeed = 10.0f;
+    public float WalkingSpeed { get => m_walkingSpeed; set => m_walkingSpeed = value; }
     public float RayReach { get => m_rayReach; set => m_rayReach = value;}
     public float CoolDown { get => m_coolDown; private set => m_coolDown = value; }
     public bool ReadyToShoot { get => m_readyToShoot; set => m_readyToShoot = value; }

@@ -1,3 +1,134 @@
+//* First Person Jump
+
+/*
+
+//TODO
+    [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
+    public float JumpTimeout = 0.1f;
+    [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
+    public float FallTimeout = 0.15f;
+    // player
+    private float _speed;
+    private float _verticalVelocity = 0.0f;
+    private float _terminalVelocity = 53.0f;
+
+    // timeout deltatime
+    private float _jumpTimeoutDelta;
+    private float _fallTimeoutDelta;
+    private bool m_hasJumped = false;
+
+    private void CheckIfGrounded()
+    {
+        // groundedPlayer = m_controller.isGrounded;
+        // if (groundedPlayer && playerVelocity.y < 0)
+        // {
+        //     playerVelocity.y = 0f;
+        // }
+
+
+        //TODO
+        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y + GroundedOffset, transform.position.z);
+
+        Debug.DrawLine(transform.position, spherePosition, Color.yellow);
+        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+    }
+ public void CheckIfJumped()
+    {
+        //if (m_hasJumped) return;
+        //if (!Grounded) return;
+        if (InputManager.Instance)
+        {
+            m_hasJumped = InputManager.Instance.Jump == 1;
+            if (!m_hasJumped) _verticalVelocity = Mathf.Sqrt(JumpHeight * -50f * Gravity);
+
+            if (m_hasJumped)
+            {
+                //_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                Vector3 jumpForce = new Vector3(0, _verticalVelocity, 0);
+                m_controller.Move(Time.deltaTime * jumpForce);
+
+                _verticalVelocity -= Gravity * Time.deltaTime;
+            }
+            // the square root of H * -2 * G = how much velocity needed to reach desired height
+
+
+            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+            // if (_verticalVelocity < _terminalVelocity)
+            // {
+            //     _verticalVelocity += Gravity * Time.deltaTime;
+            // }
+
+            Debug.Log(m_hasJumped);
+        }
+    }
+    private void JumpAndGravity()
+    {
+        if (Grounded)
+        {
+            // reset the fall timeout timer
+            _fallTimeoutDelta = FallTimeout;
+
+            // stop our velocity dropping infinitely when grounded
+            if (_verticalVelocity < 0.0f)
+            {
+                _verticalVelocity = -2f;
+            }
+
+            // Ensure the landing sound is played once when grounded again
+            // if (!_landSoundPlayed)
+            // {
+            //     _playerSound.PlayLandSound();
+            //     _landSoundPlayed = true;
+            // }
+
+            // Jump
+            if ( m_hasJumped && _jumpTimeoutDelta <= 0.0f)
+            {
+                // the square root of H * -2 * G = how much velocity needed to reach desired height
+                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                _jumpTimeoutDelta = JumpTimeout;
+                //_playerSound.PlayJumpSound();
+                // _landSoundPlayed = false; // Remove this line
+            }
+
+            // jump timeout
+            if (_jumpTimeoutDelta >= 0.0f)
+            {
+                _jumpTimeoutDelta -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            // reset the jump timeout timer
+            _jumpTimeoutDelta = JumpTimeout;
+
+            // fall timeout
+            if (_fallTimeoutDelta >= 0.0f)
+            {
+                _fallTimeoutDelta -= Time.deltaTime;
+            }
+
+            // if we are not grounded, do not jump
+            //_input.SetJump(false);
+            //m_hasJumped = false;
+
+            // _landSoundPlayed = false; // Remove this line
+        }
+
+        // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+        if (_verticalVelocity < _terminalVelocity)
+        {
+            _verticalVelocity += Gravity * Time.deltaTime;
+        }
+
+        // Reset _landSoundPlayed flag when falling below 0 velocity
+        if (!Grounded && _verticalVelocity < 0.0f && _fallTimeoutDelta < 0)
+        {
+            //_landSoundPlayed = false;
+        }
+    }
+
+*/
 
 //[SerializeField] private float m_rayReach = 30.0f; //TODO set this in PlayerState
 //private float m_displacement = 0.0f;
