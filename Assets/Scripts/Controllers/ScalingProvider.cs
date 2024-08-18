@@ -5,13 +5,13 @@ using UnityEngine;
 public class ScalingProvider : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
-    [SerializeField] private RayBeamProvider m_rayTracerController;
+    [SerializeField] private RayBeamProvider m_rayBeamProvider;
     private float m_cooldownCounter;
     private const float ONE_SECOND = 1.0f;
 
     private void Start()
     {
-            m_cooldownCounter = so_playerState.CoolDown;
+        m_cooldownCounter = so_playerState.CoolDown;
     }
     private void FixedUpdate()
     {
@@ -38,11 +38,11 @@ public class ScalingProvider : MonoBehaviour
         //Debug.Log("Shooting");
         //Debug.Log(sign);
 
-        Ray ray = Camera.main.ScreenPointToRay(screenPoint);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            m_rayTracerController.ShootRayBeam(sign, ray, hit.point); //Only when the ray hit something with at least a Collider
+            m_rayBeamProvider.ShootRayBeam(sign, ray, hit.point); //Only when the ray hit something with at least a Collider
 
             GameObject geometry = hit.collider.gameObject;
             ScalingController scaler;
@@ -51,6 +51,6 @@ public class ScalingProvider : MonoBehaviour
 
             scaler.TriggerScaling(scaleFactor);
         }
-        
+
     }
 }

@@ -29,9 +29,9 @@ public class ScalingController : MonoBehaviour
         m_newTargetScaleFactor = scaleFactor;
 
         if (scaleFactor > 1.0f)
-            m_scalingAudioFX.PlayStretch(scaleFactor - 0.05f);
+            m_scalingAudioFX.PlayStretch(scaleFactor + 0.02f);
         else
-            m_scalingAudioFX.PlayShrink(scaleFactor - 0.05f);
+            m_scalingAudioFX.PlayShrink(scaleFactor - 0.02f);
 
         m_wasTriggered = true;
         m_isScaling = true;
