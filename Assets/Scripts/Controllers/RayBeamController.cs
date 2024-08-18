@@ -19,6 +19,8 @@ public class RayBeamController : MonoBehaviour
     private Vector3 m_beamMagnitud;
     private Ray m_ray;
     public Ray ShootedRayBeam { get => m_ray; set => m_ray = value;}
+    private Vector3 m_beamDirection;
+    public Vector3 BeamDirection { get => m_beamDirection; set => m_beamDirection = value;}
     private GradientColorKey[] m_skrinkColorKeys;
     private GradientColorKey[] m_stretchColorKeys;
     private GradientAlphaKey[] m_alphaColorKeys;
@@ -60,20 +62,17 @@ public class RayBeamController : MonoBehaviour
     }
     public void BeamTailDisplacementAcrossRay()
     {
-        m_beamMagnitud = m_ray.direction.normalized * so_playerState.RayReach;
-        m_beamPoints[0] = gameObject.transform.position + m_ray.direction.normalized * m_displacement;
+        //m_beamMagnitud = m_ray.direction.normalized * so_playerState.RayReach;
+        m_beamPoints[0] = gameObject.transform.position + BeamDirection.normalized * m_displacement;//m_ray.direction.normalized * m_displacement;
         m_beamPoints[1] = m_hitPoint;//m_beamOriginAtGun.position + m_beamMagnitud;
+        
         m_lineRenderer.SetPositions(m_beamPoints);
+        
         m_displacement += m_displacementSpeed * Time.deltaTime;
-
+        
         //Debug.Log(displacement);
-        if (m_displacement <  so_playerState.RayReach) return;
+        if (m_displacement <  BeamDirection.magnitude) return;//so_playerState.RayReach) return;
         Destroy(gameObject);
-        // m_beamPoints[0] = m_beamOriginAtGun.position;
-        // m_beamPoints[1] = m_beamOriginAtGun.position;
-        // m_lineRenderer.SetPositions(m_beamPoints);
-        // m_hasShoot = false;
-        // m_displacement = 0;
     }
     public void EmitImpactParticles(Vector3 hitPoint, float sign)
     {

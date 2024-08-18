@@ -1,5 +1,5 @@
 using UnityEngine;
-public class RayTracerController : MonoBehaviour
+public class RayBeamProvider : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
     [Header("References")]
@@ -16,6 +16,7 @@ public class RayTracerController : MonoBehaviour
         rayBeam.GetComponent<RayBeamController>().HitPoint = hitPoint;
         rayBeam.GetComponent<RayBeamController>().Sign = sign;
         rayBeam.GetComponent<RayBeamController>().ShootedRayBeam = ray;
+        rayBeam.GetComponent<RayBeamController>().BeamDirection = hitPoint - m_beamOriginAtGun.position;
         //? The RayBeam Gets removed when the displacement ends. Destroy(rayBeam, 2.0f);
     }
 }

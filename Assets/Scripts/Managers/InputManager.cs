@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get; private set; }
     [SerializeField] private PlayerState so_playerState;
     [SerializeField] private ScalingProvider m_scalingProvider;
-    [SerializeField] private RayTracerController m_rayTracerController;
+    [SerializeField] private RayBeamProvider m_rayTracerController;
     private float m_startEvent; // A bool triggered by the Space bar to test anything
     private Vector2 m_direction; // Unit 2D vector, default state is [0,0]
     private Vector2 m_pointer;
