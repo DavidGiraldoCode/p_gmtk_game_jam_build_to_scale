@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private ScalingProvider m_scalingProvider;
     private float m_startEvent; // A bool triggered by the Space bar to test anything
     private Vector2 m_direction; // Unit 2D vector, default state is [0,0]
+    private float m_jump;
     private Vector2 m_pointer;
     private float m_castSpell;
     private float m_mousePressed;
@@ -22,6 +23,11 @@ public class InputManager : MonoBehaviour
     {
         get => m_direction;
         private set => m_direction = value;
+    }
+    public float Jump
+    {
+        get => m_jump;
+        private set => m_jump = value;
     }
     public float StartEvent
     {
@@ -70,6 +76,17 @@ public class InputManager : MonoBehaviour
             Instance.Direction = Vector2.zero;
         else
             Instance.Direction = context.ReadValue<Vector2>();
+    }
+
+    public static void OnJump(InputAction.CallbackContext context)
+    {
+        if (m_giveControl && context.performed)
+        {
+            Instance.Jump = context.ReadValue<float>();
+        
+        }
+        else
+            Instance.Jump = 0;
     }
 
     public void OnStartGame(InputAction.CallbackContext context)

@@ -1442,6 +1442,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f274a67c-f1c8-4fd6-a843-3f97e5421832
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 619554949}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38ed806a-3b28-4bed-9860-5056329b8eaa
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1462,12 +1478,16 @@ MonoBehaviour:
   so_playerState: {fileID: 11400000, guid: 32f77c0dc5fba4ac9a1f22e4e7b76872, type: 2}
   m_camera: {fileID: 1286699868}
   m_playerHead: {fileID: 1746273148}
+  JumpHeight: 1.2
+  Gravity: -15
   Grounded: 1
   GroundedOffset: 0.4
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
     m_Bits: 64
+  JumpTimeout: 0.1
+  FallTimeout: 0.15
 --- !u!1 &1505171656
 GameObject:
   m_ObjectHideFlags: 0
