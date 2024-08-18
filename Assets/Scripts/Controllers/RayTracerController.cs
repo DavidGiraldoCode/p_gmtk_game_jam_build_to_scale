@@ -3,27 +3,38 @@ public class RayTracerController : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
     [SerializeField] private Transform m_beamOriginAtGun;
-    [SerializeField] private LineRenderer m_lineRenderer;
+    //TODO --------- Place in an independent RayBeam GO
     [SerializeField] private BeamAudioFX m_beamAudioFX;
-    [SerializeField] private ExitParticlesController m_exitParticles;
     private Vector3[] m_beamPoints;
+    private Vector3 m_hitPoint;
+    //Add RayBeamPrefab
+    [SerializeField] private LineRenderer m_lineRenderer;
+    [SerializeField] private BeamImpactParticle m_beamImpactParticle;
+    //TODO ----------
+
+    [SerializeField] private ExitParticlesController m_exitParticles;
+
     private bool m_hasShoot = false;
-    private float m_displacementSpeed;
-    [SerializeField] private float m_rayReach = 30.0f;
-    private float displacement = 0.0f;
+    [SerializeField] private float m_displacementSpeed = 20.0f;
+    [SerializeField] private float m_rayReach = 30.0f; //TODO set this in PlayerState
+    private float m_displacement = 0.0f;
     private Vector3 m_beamMagnitud;
     private Ray m_ray;
     private void Awake()
     {
-        m_lineRenderer.positionCount = 2;
-        m_beamPoints = new Vector3[m_lineRenderer.positionCount];
-        m_displacementSpeed = so_playerState.CoolDown;
+        m_lineRenderer.positionCount = 2; //TODO move to independent RayBeam GO
+        m_beamPoints = new Vector3[m_lineRenderer.positionCount]; //TODO move to independent RayBeam GO
+        //m_displacementSpeed = 20.0f;//so_playerState.CoolDown; //TODO move to independent RayBeam GO
     }
-    public void ShootRayBeam(float sign)
+    public void ShootRayBeam(float sign, Ray ray, Vector3 hitPoint)
     {
         if (!m_beamOriginAtGun) return;
         m_hasShoot = true;
         m_exitParticles.Emit(sign, m_beamOriginAtGun.position);
+
+        //TODO place all of this inside independe RayBeam GO
+        m_hitPoint = hitPoint;
+        EmitImpactParticles(hitPoint);
         if (sign < 0)
         {
             m_lineRenderer.startColor = Color.yellow;
@@ -36,8 +47,9 @@ public class RayTracerController : MonoBehaviour
             m_lineRenderer.endColor = Color.green;
             m_beamAudioFX.PlayStretch();
         }
-
-        m_ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        //TODO ---------------------
+        //? For testing, this ray belongs to anything the user click on the screen. Not the center
+        m_ray = ray;//Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         Debug.DrawLine(m_beamOriginAtGun.position, m_ray.direction + m_beamOriginAtGun.position);
 
     }
@@ -52,36 +64,48 @@ public class RayTracerController : MonoBehaviour
     public void BeamTailDisplacementAcrossRay()
     {
         m_beamMagnitud = m_ray.direction.normalized * m_rayReach;
-        m_beamPoints[0] = m_beamOriginAtGun.position + m_ray.direction.normalized * displacement;
-        m_beamPoints[1] = m_beamOriginAtGun.position + m_beamMagnitud;
+        m_beamPoints[0] = m_beamOriginAtGun.position + m_ray.direction.normalized * m_displacement;
+        m_beamPoints[1] = m_hitPoint;//m_beamOriginAtGun.position + m_beamMagnitud;
         m_lineRenderer.SetPositions(m_beamPoints);
-        displacement += m_displacementSpeed * Time.fixedDeltaTime;
+        m_displacement += m_displacementSpeed * Time.fixedDeltaTime;
 
         m_beamHeadIndicator.transform.position = m_beamPoints[1];
         //Debug.Log(displacement);
-        if (displacement < m_rayReach) return;
+        if (m_displacement < m_rayReach) return;
         m_beamPoints[0] = m_beamOriginAtGun.position;
         m_beamPoints[1] = m_beamOriginAtGun.position;
         m_lineRenderer.SetPositions(m_beamPoints);
         m_hasShoot = false;
-        displacement = 0;
+        m_displacement = 0;
     }
+    //TODO --------- place inside the RayBeam independent GM
+    [SerializeField] private GameObject m_impactWavesParticlesPrefab;
+    public void EmitImpactParticles(Vector3 hitPoint)
+    {
+        if (!m_impactWavesParticlesPrefab) return;
+
+        GameObject impactParticles = Instantiate(m_impactWavesParticlesPrefab, hitPoint, m_impactWavesParticlesPrefab.transform.rotation);
+
+        Debug.Log(impactParticles);
+        Destroy(impactParticles, impactParticles.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+    }
+    //TODO -----
     public void BeamHeadDisplacementAcrossRay()
     {
         //NOTE: using a particle material yields a very interesting look, as if it were a plasma blast
         m_beamMagnitud = m_ray.direction.normalized * 5f;
         m_beamPoints[0] = m_beamOriginAtGun.position;// + m_ray.direction.normalized;// * displacement;
-        m_beamPoints[1] = m_beamOriginAtGun.position + m_beamMagnitud * displacement;//m_ray.GetPoint(displacement);//.direction * 20.0f;
+        m_beamPoints[1] = m_beamOriginAtGun.position + m_beamMagnitud * m_displacement;//m_ray.GetPoint(displacement);//.direction * 20.0f;
         m_lineRenderer.SetPositions(m_beamPoints);
-        displacement += m_displacementSpeed * Time.deltaTime;
+        m_displacement += m_displacementSpeed * Time.deltaTime;
 
         m_beamHeadIndicator.transform.position = m_beamPoints[1];
         //Debug.Log(displacement);
-        if (displacement < m_rayReach) return;
+        if (m_displacement < m_rayReach) return;
         m_beamPoints[0] = m_beamOriginAtGun.position;
         m_beamPoints[1] = m_beamOriginAtGun.position;
         m_lineRenderer.SetPositions(m_beamPoints);
         m_hasShoot = false;
-        displacement = 0;
+        m_displacement = 0;
     }
 }

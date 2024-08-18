@@ -241,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2214960676168803949
 Transform:
   m_ObjectHideFlags: 0
@@ -805,11 +805,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   so_playerState: {fileID: 11400000, guid: 32f77c0dc5fba4ac9a1f22e4e7b76872, type: 2}
   m_beamOriginAtGun: {fileID: 4635967398951480384}
-  m_lineRenderer: {fileID: 4824807147646587260}
   m_beamAudioFX: {fileID: 1368161685011266534}
+  m_lineRenderer: {fileID: 4824807147646587260}
+  m_beamImpactParticle: {fileID: 5170851904690023562}
   m_exitParticles: {fileID: 7346860821371808184}
+  m_displacementSpeed: 40
   m_rayReach: 5
   m_beamHeadIndicator: {fileID: 2285649305744267232}
+  m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
+    type: 3}
 --- !u!114 &7346860821371808184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1162,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.12902832
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
+      value: 1.4302123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: -2.0021849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
+      value: 1.4302123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.43500865
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: -2.0021849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0.8006932
+      objectReference: {fileID: 0}
     - target: {fileID: 6019405089115081219, guid: b695107e5ed8e4d83b719d17a0b0efa2,
         type: 3}
       propertyPath: m_Name
@@ -1166,8 +1215,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6019405089115081219, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5170851904690023562}
   m_SourcePrefab: {fileID: 100100000, guid: b695107e5ed8e4d83b719d17a0b0efa2, type: 3}
+--- !u!1 &3215114729680193265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6019405089115081219, guid: b695107e5ed8e4d83b719d17a0b0efa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 9157885977414651122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5170851904690023562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215114729680193265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e46adba06df42d3b1a565231b6460d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
+    type: 3}
+  m_impactDebugPrefab: {fileID: 0}
 --- !u!120 &4824807147646587260 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 4459250065930280334, guid: b695107e5ed8e4d83b719d17a0b0efa2,

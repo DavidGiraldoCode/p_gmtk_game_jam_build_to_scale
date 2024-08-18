@@ -33,7 +33,7 @@ public class ScalingProvider : MonoBehaviour
     {
         if (!so_playerState.ReadyToShoot) return;
         so_playerState.ReadyToShoot = false;
-        m_rayTracerController.ShootRayBeam(sign);
+        //? they ray show even if nothing is hit m_rayTracerController.ShootRayBeam(sign);
 
         //Debug.Log("Shooting");
         //Debug.Log(sign);
@@ -42,6 +42,8 @@ public class ScalingProvider : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            m_rayTracerController.ShootRayBeam(sign, ray, hit.point);
+
             GameObject geometry = hit.collider.gameObject;
             ScalingController scaler;
             if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
