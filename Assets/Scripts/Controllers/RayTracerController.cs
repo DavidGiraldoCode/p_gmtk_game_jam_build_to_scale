@@ -23,8 +23,17 @@ public class RayTracerController : MonoBehaviour
     private void Awake()
     {
         m_lineRenderer.positionCount = 2; //TODO move to independent RayBeam GO
-        m_beamPoints = new Vector3[m_lineRenderer.positionCount]; //TODO move to independent RayBeam GO
-        //m_displacementSpeed = 20.0f;//so_playerState.CoolDown; //TODO move to independent RayBeam GO
+        m_beamPoints = new Vector3[m_lineRenderer.positionCount];
+        //TODO move to independent RayBeam GO
+
+        //m_displacementSpeed = 20.0f;//so_playerState.CoolDown; 
+
+        //TODO move to independent RayBeam GO
+        m_skrinkColorKeys = new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.yellow, 1.0f) };
+        m_stretchColorKeys = new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f), new GradientColorKey(Color.blue, 1.0f) };
+        m_alphaColorKeys = new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) };
+
+
     }
     public void ShootRayBeam(float sign, Ray ray, Vector3 hitPoint)
     {
@@ -34,7 +43,7 @@ public class RayTracerController : MonoBehaviour
 
         //TODO place all of this inside independe RayBeam GO
         m_hitPoint = hitPoint;
-        EmitImpactParticles(hitPoint);
+        EmitImpactParticles(hitPoint, sign);
         if (sign < 0)
         {
             m_lineRenderer.startColor = Color.yellow;
@@ -80,11 +89,25 @@ public class RayTracerController : MonoBehaviour
     }
     //TODO --------- place inside the RayBeam independent GM
     [SerializeField] private GameObject m_impactWavesParticlesPrefab;
-    public void EmitImpactParticles(Vector3 hitPoint)
+    private GradientColorKey[] m_skrinkColorKeys;
+    private GradientColorKey[] m_stretchColorKeys;
+    private GradientAlphaKey[] m_alphaColorKeys;
+    public void EmitImpactParticles(Vector3 hitPoint, float sign)
     {
         if (!m_impactWavesParticlesPrefab) return;
 
         GameObject impactParticles = Instantiate(m_impactWavesParticlesPrefab, hitPoint, m_impactWavesParticlesPrefab.transform.rotation);
+        
+        //* Defining color
+
+        var impactWavesCol = impactParticles.GetComponent<ParticleSystem>().colorOverLifetime;
+
+        impactWavesCol.enabled = true;
+
+        Gradient grad = new Gradient();
+        grad.SetKeys(sign > 0 ? m_stretchColorKeys : m_skrinkColorKeys, m_alphaColorKeys);
+
+        impactWavesCol.color = grad;
 
         Debug.Log(impactParticles);
         Destroy(impactParticles, impactParticles.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
