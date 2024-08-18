@@ -6,28 +6,35 @@ public class ScalingProvider : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
     [SerializeField] private RayTracerController m_rayTracerController;
-    private float m_cooldownTime = 5.0f;
-    private float m_cooldownCounter = 5.0f;
-    private float m_cooldownSpeed = 10f;
-    private bool m_readyToShoot = true;
+    private float m_cooldownCounter;
+    private const float ONE_SECOND = 1.0f;
 
+    private void Start()
+    {
+            m_cooldownCounter = so_playerState.CoolDown;
+    }
     private void FixedUpdate()
     {
-        if (!m_readyToShoot)
-            m_cooldownCounter -= m_cooldownSpeed * Time.fixedDeltaTime;
+        if (!so_playerState.ReadyToShoot)
+        {
+            m_cooldownCounter -= ONE_SECOND * Time.fixedDeltaTime;
+        }
+
 
         if (m_cooldownCounter <= 0)
         {
-            m_cooldownCounter = m_cooldownTime;
-            m_readyToShoot = true;
+            m_cooldownCounter = so_playerState.CoolDown;
+            so_playerState.ReadyToShoot = true;
         }
 
+        //Debug.Log(m_cooldownCounter);
     }
     public void ShootScalingRay(float sign, Vector2 screenPoint)
     {
-        if (!m_readyToShoot) return;
+        if (!so_playerState.ReadyToShoot) return;
+        so_playerState.ReadyToShoot = false;
         m_rayTracerController.ShootRayBeam(sign);
-        
+
         //Debug.Log("Shooting");
         //Debug.Log(sign);
 
@@ -41,8 +48,7 @@ public class ScalingProvider : MonoBehaviour
             float scaleFactor = 1.0f + (so_playerState.CurrentScaleFactor * sign);
 
             scaler.TriggerScaling(scaleFactor);
-
         }
-        m_readyToShoot = false;
+        
     }
 }

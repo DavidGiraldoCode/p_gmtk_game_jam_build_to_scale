@@ -7,9 +7,13 @@ public class PlayerState : ScriptableObject
     [SerializeField] private int m_numberOfScalingFactors = 3;
     [SerializeField] private float m_rateOfScale = 0.25f;
     [SerializeField] private float[] m_scaleFactors;
+    [SerializeField] private float m_coolDown = 1.0f;
+    [SerializeField] private bool m_readyToShoot = true;
+    public float CoolDown { get => m_coolDown; private set => m_coolDown = value; }
+    public bool ReadyToShoot { get => m_readyToShoot; set => m_readyToShoot = value; }
     public float CurrentScaleFactor //TODO this will be removed, this variables is change with a method
     {
-        get 
+        get
         {
             return m_currentScaleFactorIndex < m_scaleFactors.Length ? m_scaleFactors[m_currentScaleFactorIndex] : 1.0f;
         }

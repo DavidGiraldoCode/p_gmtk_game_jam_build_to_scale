@@ -103,26 +103,26 @@ public class InputManager : MonoBehaviour
     }
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            //Debug.Log(context.ReadValue<float>());
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                //Debug.DrawLine(ray.origin, hit.point);
-                //Debug.Log(hit.collider.gameObject.name);
-                GameObject geometry = hit.collider.gameObject;
-                //geometry.GetComponent<ScalingController>().TriggerScaling(2);
-                ScalingController scaler;
-                if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
-                scaler.TriggerScaling(1f + so_playerState.CurrentScaleFactor);
-                // Rigidbody selectedDiskRB;
-                // if (!hit.collider) return;
-                // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
-            }
+        // if (context.performed)
+        // {
+        //     //Debug.Log(context.ReadValue<float>());
+        //     Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        //     RaycastHit hit;
+        //     if (Physics.Raycast(ray, out hit))
+        //     {
+        //         //Debug.DrawLine(ray.origin, hit.point);
+        //         //Debug.Log(hit.collider.gameObject.name);
+        //         GameObject geometry = hit.collider.gameObject;
+        //         //geometry.GetComponent<ScalingController>().TriggerScaling(2);
+        //         ScalingController scaler;
+        //         if (!geometry.TryGetComponent<ScalingController>(out scaler)) return;
+        //         scaler.TriggerScaling(1f + so_playerState.CurrentScaleFactor);
+        //         // Rigidbody selectedDiskRB;
+        //         // if (!hit.collider) return;
+        //         // if (!hit.collider.gameObject.TryGetComponent<Rigidbody>(out selectedDiskRB)) return;
+        //     }
 
-        }
+        // }
     }
     //TODO Left click to stretch and Right click to shrink.
     public void OnStretch(InputAction.CallbackContext context)
