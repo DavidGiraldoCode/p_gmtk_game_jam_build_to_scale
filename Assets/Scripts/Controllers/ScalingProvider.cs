@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScalingProvider : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
-    [SerializeField] private RayTracerController m_rayTracerController;
+    [SerializeField] private RayBeamProvider m_rayTracerController;
     private float m_cooldownCounter;
     private const float ONE_SECOND = 1.0f;
 
@@ -33,7 +33,7 @@ public class ScalingProvider : MonoBehaviour
     {
         if (!so_playerState.ReadyToShoot) return;
         so_playerState.ReadyToShoot = false;
-        //? they ray show even if nothing is hit m_rayTracerController.ShootRayBeam(sign);
+        //? here they ray show even if nothing is hit m_rayTracerController.ShootRayBeam(sign);
 
         //Debug.Log("Shooting");
         //Debug.Log(sign);
@@ -42,7 +42,7 @@ public class ScalingProvider : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            m_rayTracerController.ShootRayBeam(sign, ray, hit.point);
+            m_rayTracerController.ShootRayBeam(sign, ray, hit.point); //Only when the ray hit something with at least a Collider
 
             GameObject geometry = hit.collider.gameObject;
             ScalingController scaler;
