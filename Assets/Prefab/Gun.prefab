@@ -342,8 +342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
     type: 3}
-  m_impactDebugPrefab: {fileID: 7819277408920353795, guid: c802286b1f012471481235cd9097c1d1,
-    type: 3}
 --- !u!54 &870720119174534313
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -522,7 +520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
     type: 3}
-  m_impactDebugPrefab: {fileID: 0}
 --- !u!1 &7323322266915344931
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,16 +953,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   so_playerState: {fileID: 11400000, guid: 32f77c0dc5fba4ac9a1f22e4e7b76872, type: 2}
-  m_beamOriginAtGun: {fileID: 4635967398951480384}
-  m_beamAudioFX: {fileID: 1368161685011266534}
-  m_lineRenderer: {fileID: 4824807147646587260}
-  m_beamImpactParticle: {fileID: 3019344429636045073}
-  m_exitParticles: {fileID: 7346860821371808184}
-  m_displacementSpeed: 40
-  m_rayReach: 5
-  m_beamHeadIndicator: {fileID: 2285649305744267232}
-  m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
+  m_rayBeamPrefab: {fileID: 6019405089115081219, guid: b695107e5ed8e4d83b719d17a0b0efa2,
     type: 3}
+  m_beamOriginAtGun: {fileID: 4635967398951480384}
+  m_exitParticles: {fileID: 7346860821371808184}
 --- !u!114 &7346860821371808184
 MonoBehaviour:
   m_ObjectHideFlags: 0
