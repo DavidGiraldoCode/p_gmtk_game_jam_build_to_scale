@@ -4,6 +4,7 @@ public class RayTracerController : MonoBehaviour
     [SerializeField] private Transform m_beamOriginAtGun;
     [SerializeField] private LineRenderer m_lineRenderer;
     [SerializeField] private BeamAudioFX m_beamAudioFX;
+    [SerializeField] private ExitParticlesController m_exitParticles;
     private Vector3[] m_beamPoints;
     private bool m_hasShoot = false;
     [SerializeField] private float m_displacementSpeed = 1.0f;
@@ -20,6 +21,7 @@ public class RayTracerController : MonoBehaviour
     {
         if (!m_beamOriginAtGun) return;
         m_hasShoot = true;
+        m_exitParticles.Emit(sign, m_beamOriginAtGun.position);
         if (sign < 0)
         {
             m_lineRenderer.startColor = Color.yellow;
