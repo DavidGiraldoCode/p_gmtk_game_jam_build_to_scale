@@ -13,11 +13,12 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Add gun sound FX
 - [~] Add gun cool down before next shoot
 - [x] Gun diegetic HUD
-- [ ] Add particles when shooting the ray
-- [ ] Review timing between shooting and scaling
+- [x] Add particles when shooting the ray
+- [~] Review timing between shooting and scaling
+- [ ] Create a standalone RayBeam GameObject to Instantiate in the scene
 - [ ] Add gun animations
 - [ ] Implement a FS movement: walking and looking
-- [ ] Make the plater jump.
+- [ ] Make the player jump.
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
 - [ ] Remove GameObject once they reach a scale threshold
 - [ ] Add soundFX on disapearing from shrinking and stretching.
