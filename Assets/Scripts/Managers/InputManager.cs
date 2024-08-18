@@ -7,7 +7,6 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get; private set; }
     [SerializeField] private PlayerState so_playerState;
     [SerializeField] private ScalingProvider m_scalingProvider;
-    [SerializeField] private RayBeamProvider m_rayTracerController;
     private float m_startEvent; // A bool triggered by the Space bar to test anything
     private Vector2 m_direction; // Unit 2D vector, default state is [0,0]
     private Vector2 m_pointer;
@@ -127,18 +126,16 @@ public class InputManager : MonoBehaviour
     //TODO Left click to stretch and Right click to shrink.
     public void OnStretch(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && m_scalingProvider)
         {
             m_scalingProvider.ShootScalingRay(1.0f, Mouse.current.position.ReadValue());
-            //m_rayTracerController.ShootRayBeam(1.0f);
         }
     }
     public void OnShrink(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && m_scalingProvider)
         {
             m_scalingProvider.ShootScalingRay(-1.0f, Mouse.current.position.ReadValue());
-            // m_rayTracerController.ShootRayBeam(-1.0f);
         }
     }
     //TODO Ray visual efect
