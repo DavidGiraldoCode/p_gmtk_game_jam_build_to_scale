@@ -18,6 +18,7 @@ public class RayBeamController : MonoBehaviour
     private float m_displacement = 0.0f;
     private Vector3 m_beamMagnitud;
     private Ray m_ray;
+    public Ray ShootedRayBeam { get => m_ray; set => m_ray = value;}
     private GradientColorKey[] m_skrinkColorKeys;
     private GradientColorKey[] m_stretchColorKeys;
     private GradientAlphaKey[] m_alphaColorKeys;
@@ -50,6 +51,7 @@ public class RayBeamController : MonoBehaviour
             m_lineRenderer.endColor = Color.green;
             m_beamAudioFX.PlayStretch();
         }
+        m_ray = ShootedRayBeam;
     }
 
     private void Update()

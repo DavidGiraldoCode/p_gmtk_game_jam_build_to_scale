@@ -52,7 +52,7 @@ MonoBehaviour:
   m_lineRenderer: {fileID: 4459250065930280334}
   m_impactWavesParticlesPrefab: {fileID: 3315063245660733278, guid: 4069bcc6864e741689a9c50ae90a9e2c,
     type: 3}
-  m_displacementSpeed: 20
+  m_displacementSpeed: 40
 --- !u!114 &1782704445679060858
 MonoBehaviour:
   m_ObjectHideFlags: 0
