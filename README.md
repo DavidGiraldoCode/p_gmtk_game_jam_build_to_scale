@@ -18,7 +18,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Create a standalone RayBeam GameObject to Instantiate in the scene
 - [x] Implement a FS movement: walking and looking
 - [x] Assembly FS, gun and scaling systems
-- [ ] Make the player jump.
+- [x] Make the player jump (Character Controller).
 - [ ] Start state with UI
 - [ ] Reload scene with UI
 - [ ] Lose state with UI
@@ -38,6 +38,9 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - A conflict, an asuption, and a revelation.
 - Build on top of the previous knowledge, ramping up in dificulty.
 - Steps, solutions, number of mechanics.
+
+## DevLog
+- Later on, I realized that the CharacterController was not the best option if I wanted to enable the player to be propelled upward by the scaling geometry.
 
 ## References
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4

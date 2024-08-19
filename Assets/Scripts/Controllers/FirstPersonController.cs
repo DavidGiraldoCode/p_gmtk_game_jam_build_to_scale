@@ -25,7 +25,7 @@ public class FirstPersonController : MonoBehaviour
     //* WIP jumping --------------------------------------
     [Header("Gravity")]
     [SerializeField] private float m_gravity = -9.80f;
-    [SerializeField] private float m_groundedGravity = -0.05f; //TODO
+    [SerializeField] private float m_groundedGravity = -0.05f;
     private bool m_isGrounded = true;
     [Header("Jump")]
     [SerializeField] private float m_maxJumpHeight = 1.0f;
@@ -74,6 +74,9 @@ public class FirstPersonController : MonoBehaviour
         m_currentMovementVector.x = (m_camera.transform.right.x * directionX + m_camera.transform.forward.x * directionZ) * so_playerState.WalkingSpeed;
 
         m_characterController.Move(m_currentMovementVector * Time.deltaTime);
+
+        //Aligns the head to the camera and move the gun
+        m_playerHead.transform.rotation = m_camera.transform.rotation;
     }
     private void HandleJump()
     {
