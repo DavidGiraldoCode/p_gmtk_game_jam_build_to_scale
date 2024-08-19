@@ -31,20 +31,24 @@ public class GamePlayManager : MonoBehaviour
             throw new System.NullReferenceException("The GamePlayManager always needs a SceneRef asset to load the next scene");
 
         //TODO
-        Debug.Log(SceneManager.GetActiveScene().name);
+        //Debug.Log(SceneManager.GetActiveScene().name);
 
     }
 
     private void Update()
     {
-
+        TestingSceneLoading();
 
     }
 
     public void LoadNextScene()
     {
-
         SceneManager.LoadScene(so_sceneToLoadNext.path);
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().path);
     }
 
     //TODO
@@ -56,8 +60,9 @@ public class GamePlayManager : MonoBehaviour
         if (counter > 2.0f && !stop)
         {
             stop = true;
-            Debug.Log("Load scene");
-            SceneManager.LoadScene(so_sceneToLoadNext.path);
+            Debug.Log("Re-Load scene");
+            //ReloadCurrentScene();
+            //SceneManager.LoadScene(so_sceneToLoadNext.path);
         }
     }
 }
