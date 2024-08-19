@@ -71,22 +71,34 @@ public class FirstPersonController : MonoBehaviour
         //m_controller.Move(so_playerState.WalkingSpeed * Time.deltaTime * moveTo);
 
         //m_currentMovementVector = new Vector3(InputManager.Instance.Direction.x, m_verticalVelocity, InputManager.Instance.Direction.y);
-        m_currentMovementVector.x = m_inputManager.Direction.x; // A and D keys
-        m_currentMovementVector.z = m_inputManager.Direction.y; //W and S keys
+        m_currentMovementVector.x = m_inputManager.Direction.x * so_playerState.WalkingSpeed; // A and D keys
+        m_currentMovementVector.z = m_inputManager.Direction.y * so_playerState.WalkingSpeed; //W and S keys
 
         //m_currentMovementVector = moveTo;// (m_camera.transform.forward * moveTo.z) + (m_camera.transform.right * moveTo.x);
-        m_currentMovementVector = m_camera.transform.forward * m_currentMovementVector.z + m_camera.transform.right * m_currentMovementVector.x;
-        m_currentMovementVector = so_playerState.WalkingSpeed * m_currentMovementVector * Time.deltaTime;
+        
+        //?m_currentMovementVector = m_camera.transform.forward * m_currentMovementVector.z + m_camera.transform.right * m_currentMovementVector.x;
+        //?m_currentMovementVector = so_playerState.WalkingSpeed * m_currentMovementVector * Time.deltaTime;
 
         // if (m_isGrounded) Handled by ApplyGravity
         //     m_currentMovementVector.y = m_groundedGravity;
 
         ApplyGravity();
         HandleJump();
-        m_controller.Move(m_currentMovementVector);
+        m_controller.Move(m_currentMovementVector  * Time.deltaTime);
 
         m_playerHead.transform.rotation = m_camera.transform.rotation;
 
+    }
+    private void ApplyGravity()
+    {
+        // if (Grounded) return;
+        // Vector3 gravityForce = new Vector3(0, Gravity, 0);
+        // m_controller.Move(Time.deltaTime * gravityForce);
+
+        if (m_isGrounded)
+            m_currentMovementVector.y = m_groundedGravity;
+        else
+            m_currentMovementVector.y += m_gravity * Time.deltaTime;
     }
 
 
@@ -98,6 +110,10 @@ public class FirstPersonController : MonoBehaviour
         {
             m_isJumping = true;
             m_currentMovementVector.y = m_initialJumpVelocity;
+        }
+        else if(m_isJumping && !m_inputManager.Jump && m_isGrounded)
+        {
+            m_isJumping = false;
         }
     }
 
@@ -141,19 +157,5 @@ public class FirstPersonController : MonoBehaviour
 
     }
 
-    private void ApplyGravity()
-    {
-        // if (Grounded) return;
-        // Vector3 gravityForce = new Vector3(0, Gravity, 0);
-        // m_controller.Move(Time.deltaTime * gravityForce);
-
-        if (m_isGrounded)
-        {
-            m_currentMovementVector.y = m_groundedGravity;
-        }
-        else
-        {
-            m_currentMovementVector.y += m_gravity * Time.deltaTime;
-        }
-    }
+    
 }
