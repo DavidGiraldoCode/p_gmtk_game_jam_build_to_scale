@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class FirstPersonController : MonoBehaviour
 {
     [SerializeField] private PlayerState so_playerState;
-    private CharacterController m_controller;
+    private CharacterController m_characterController;
     private InputManager m_inputManager;
     [Header("Movement attributes")]
     private Vector3 playerVelocity;
@@ -34,7 +34,8 @@ public class FirstPersonController : MonoBehaviour
     //* __________________________________________________
     private void Awake()
     {
-        m_controller = GetComponent<CharacterController>();
+        m_characterController = GetComponent<CharacterController>();
+        m_characterController.detectCollisions = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         m_currentMovementVector = Vector3.zero;
@@ -59,8 +60,11 @@ public class FirstPersonController : MonoBehaviour
         //JumpAndGravity();
         CheckIfGrounded();
         Move();
+        //Debug.Log(m_camera.transform.rotation);
         // /ApplyGravity(); moved inside Move();
         //Debug.Log(m_currentMovementVector);
+        //Debug.Log(m_characterController.isGrounded);
+
     }
     private void Move()
     {
@@ -74,20 +78,62 @@ public class FirstPersonController : MonoBehaviour
         m_currentMovementVector.x = m_inputManager.Direction.x * so_playerState.WalkingSpeed; // A and D keys
         m_currentMovementVector.z = m_inputManager.Direction.y * so_playerState.WalkingSpeed; //W and S keys
 
+        Debug.Log("------");
+        Debug.Log(m_inputManager.Direction.y);
+        Debug.Log(m_camera.transform.forward);
+
         //m_currentMovementVector = moveTo;// (m_camera.transform.forward * moveTo.z) + (m_camera.transform.right * moveTo.x);
-        
+
         //?m_currentMovementVector = m_camera.transform.forward * m_currentMovementVector.z + m_camera.transform.right * m_currentMovementVector.x;
         //?m_currentMovementVector = so_playerState.WalkingSpeed * m_currentMovementVector * Time.deltaTime;
 
         // if (m_isGrounded) Handled by ApplyGravity
         //     m_currentMovementVector.y = m_groundedGravity;
+        //m_playerHead.transform.rotation = m_camera.transform.rotation;
+
+        //if (!m_inputManager.Jump && !m_isJumping && m_isGrounded)
+        //    m_currentMovementVector = m_camera.transform.forward * m_currentMovementVector.z + m_camera.transform.right * m_currentMovementVector.x;
 
         ApplyGravity();
         HandleJump();
-        m_controller.Move(m_currentMovementVector  * Time.deltaTime);
+        //RotateView();
+        float directionZ = m_inputManager.Direction.y;
+        float directionX = m_inputManager.Direction.x;
+        
+        m_currentMovementVector.z = (m_camera.transform.forward.z * directionZ + m_camera.transform.right.z * directionX) * so_playerState.WalkingSpeed;
+        m_currentMovementVector.x = (m_camera.transform.right.x * directionX + m_camera.transform.forward.x * directionZ) * so_playerState.WalkingSpeed;
 
-        m_playerHead.transform.rotation = m_camera.transform.rotation;
+        m_characterController.Move(m_currentMovementVector * Time.deltaTime);
 
+
+
+    }
+    //* WIP jumping --------------------------------------
+
+    private void HandleJump()
+    {
+        if (!m_isJumping && m_inputManager.Jump && m_isGrounded)
+        {
+            m_isJumping = true;
+            m_currentMovementVector = m_camera.transform.forward;
+
+            m_currentMovementVector.y = m_initialJumpVelocity;
+        }
+        else if (m_isJumping && !m_inputManager.Jump && m_isGrounded)
+        {
+            m_isJumping = false;
+
+        }
+    }
+
+    //* __________________________________________________
+    private void RotateView()
+    {
+        Vector3 positionToLookAt = new Vector3(m_currentMovementVector.x, 0, m_currentMovementVector.z);
+        Quaternion currentRotation = m_characterController.transform.rotation;
+
+        Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+        m_characterController.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * 0.05f);
     }
     private void ApplyGravity()
     {
@@ -102,22 +148,7 @@ public class FirstPersonController : MonoBehaviour
     }
 
 
-    //* WIP jumping --------------------------------------
 
-    private void HandleJump()
-    {
-        if (!m_isJumping && m_inputManager.Jump && m_isGrounded)
-        {
-            m_isJumping = true;
-            m_currentMovementVector.y = m_initialJumpVelocity;
-        }
-        else if(m_isJumping && !m_inputManager.Jump && m_isGrounded)
-        {
-            m_isJumping = false;
-        }
-    }
-
-    //* __________________________________________________
     //TODO WIP 
     [Space(10)]
     [Tooltip("The height the player can jump")]
@@ -157,5 +188,5 @@ public class FirstPersonController : MonoBehaviour
 
     }
 
-    
+
 }
