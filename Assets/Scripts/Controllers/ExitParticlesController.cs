@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
-
 public class ExitParticlesController : MonoBehaviour
 {
     [SerializeField] private GameObject m_exitSparksParticlesPrefab;
