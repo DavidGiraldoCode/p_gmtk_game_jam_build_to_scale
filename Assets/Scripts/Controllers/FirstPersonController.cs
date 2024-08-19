@@ -40,8 +40,7 @@ public class FirstPersonController : MonoBehaviour
     {
         m_characterController = GetComponent<CharacterController>();
         m_characterController.detectCollisions = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
         m_currentMovementVector = Vector3.zero;
 
         //Jump and gravity setup

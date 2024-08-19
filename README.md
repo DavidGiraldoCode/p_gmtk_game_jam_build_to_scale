@@ -19,10 +19,11 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Implement a FS movement: walking and looking
 - [x] Assembly FS, gun and scaling systems
 - [x] Make the player jump (Character Controller).
-- [ ] Start state with UI
-- [ ] Reload scene with UI
-- [ ] Lose state with UI
-- [ ] Winning state with UI
+- [x] Start state with UI
+- [x] Lose state with UI
+- [x] Winning state with UI
+- [ ] Reload current level/scene
+- [ ] Reload from scene one
 - [ ] Design puzzle one - intro
 - [ ] Design puzzle two - explore
 - [ ] Design puzzle two - final
