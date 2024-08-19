@@ -27,5 +27,9 @@ public class GUIManager : MonoBehaviour
     {
         m_startGUI.enabled = false;
     }
+    public void GUIReactionToLoseGame()
+    {
+        m_loseGUI.enabled = true;
+    }
 
 }

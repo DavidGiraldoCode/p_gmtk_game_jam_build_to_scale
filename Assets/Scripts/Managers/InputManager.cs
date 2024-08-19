@@ -76,6 +76,12 @@ public class InputManager : MonoBehaviour
         m_giveControl = true;
         so_playerState.Init();
     }
+    public void DisableFPSInteraction()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        m_giveControl = false;
+    }
 
     public static void OnMove(InputAction.CallbackContext context)
     {

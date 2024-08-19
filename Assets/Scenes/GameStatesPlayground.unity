@@ -122,6 +122,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &25045863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25045865}
+  - component: {fileID: 25045864}
+  - component: {fileID: 25045866}
+  m_Layer: 0
+  m_Name: LosingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &25045864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25045863}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.86, y: 5.26, z: 3.51}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &25045865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25045863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25045866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25045863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5f10c87d4dd4e58a1ad4db6c50c968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so_gameState: {fileID: 11400000, guid: e2cf41c3a36a748a78485909497a3f08, type: 2}
 --- !u!1 &95983350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6212817973450655346, guid: bf9505352dd1745f69bd5d9fa3ae9454,
@@ -185,6 +252,46 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &258505292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258505288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b62672988cf4914907f7f04a289864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so_gameState: {fileID: 11400000, guid: e2cf41c3a36a748a78485909497a3f08, type: 2}
+  unityResponseToLoseGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 258505289}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: DisableFPSInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 95983350}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!43 &374128469
 Mesh:
@@ -926,6 +1033,7 @@ GameObject:
   - component: {fileID: 1803792419}
   - component: {fileID: 1803792420}
   - component: {fileID: 1803792421}
+  - component: {fileID: 1803792422}
   m_Layer: 0
   m_Name: GUIManager
   m_TagString: Untagged
@@ -982,6 +1090,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1803792420}
         m_TargetAssemblyTypeName: GUIManager, Assembly-CSharp
         m_MethodName: GUIReactionToStartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1803792422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803792418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b62672988cf4914907f7f04a289864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so_gameState: {fileID: 11400000, guid: e2cf41c3a36a748a78485909497a3f08, type: 2}
+  unityResponseToLoseGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1803792420}
+        m_TargetAssemblyTypeName: GUIManager, Assembly-CSharp
+        m_MethodName: GUIReactionToLoseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1654,6 +1790,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 258505291}
+    - targetCorrespondingSourceObject: {fileID: 2487674654928938628, guid: bf9505352dd1745f69bd5d9fa3ae9454,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 258505292}
   m_SourcePrefab: {fileID: 100100000, guid: bf9505352dd1745f69bd5d9fa3ae9454, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1669,3 +1809,4 @@ SceneRoots:
   - {fileID: 607565892139688379}
   - {fileID: 4699162497503870630}
   - {fileID: 4866426128990649813}
+  - {fileID: 25045865}

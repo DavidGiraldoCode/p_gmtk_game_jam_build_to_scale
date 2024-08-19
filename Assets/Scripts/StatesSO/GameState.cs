@@ -58,10 +58,25 @@ public class GameState : ScriptableObject
     //     if (m_winGameListeners.Contains(listener))
     //         m_winGameListeners.Remove(listener);
     // }
+    //* ========================================================================================= EVENTS
+    private List<LoseGameListener> m_loseGameListeners = new List<LoseGameListener>();
     public void LoseGame()
     {
         m_gameHasStarted = false;
         m_lose = true;
+
+        for (int i = m_loseGameListeners.Count - 1; i >= 0; i--)
+            m_loseGameListeners[i].OnLoseGame();
+    }
+    public void RegisterListener(LoseGameListener listener)
+    {
+        if (!m_loseGameListeners.Contains(listener))
+            m_loseGameListeners.Add(listener);
+    }
+    public void UnregisterListener(LoseGameListener listener)
+    {
+        if (m_loseGameListeners.Contains(listener))
+            m_loseGameListeners.Remove(listener);
     }
 
     public void ProgessToNextLevel()
