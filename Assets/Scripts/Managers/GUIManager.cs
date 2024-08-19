@@ -25,11 +25,22 @@ public class GUIManager : MonoBehaviour
 
     public void GUIReactionToStartGame()
     {
-        m_startGUI.enabled = false;
+        if (m_startGUI)
+            m_startGUI.enabled = false;
+        if (m_loseGUI)
+            m_loseGUI.enabled = false;
+        if (m_winGUI)
+            m_winGUI.enabled = false;
     }
     public void GUIReactionToLoseGame()
     {
-        m_loseGUI.enabled = true;
+        if (m_loseGUI)
+            m_loseGUI.enabled = true;
+    }
+    public void GUIReactionToWinGame()
+    {
+        if (m_winGUI)
+            m_winGUI.enabled = true;
     }
 
 }

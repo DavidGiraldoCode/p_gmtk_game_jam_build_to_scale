@@ -81,6 +81,8 @@ public class InputManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         m_giveControl = false;
+        m_direction = Vector2.zero;
+        m_jump = false;
     }
 
     public static void OnMove(InputAction.CallbackContext context)

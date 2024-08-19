@@ -12,7 +12,15 @@ public class GameState : ScriptableObject
     private bool m_gameHasStarted = false;
     public bool GameHasStarted { get => m_gameHasStarted; }
     [SerializeField] private bool m_currentLevelCompleted = false;
-    public bool CurrentLevelCompleted { get => m_currentLevelCompleted;}
+    public bool CurrentLevelCompleted { get => m_currentLevelCompleted; }
+
+    public void ResetGameState()
+    {
+        m_gameHasStarted = false;
+        m_win = false;
+        m_lose = false;
+        m_currentLevelCompleted = false;
+    }
 
     //* ========================================================================================= EVENTS
     private List<GameStartListener> m_gameStartListeners = new List<GameStartListener>();
@@ -22,8 +30,6 @@ public class GameState : ScriptableObject
         m_win = false;
         m_lose = false;
         m_currentLevelCompleted = false;
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = false;
         for (int i = m_gameStartListeners.Count - 1; i >= 0; i--)
             m_gameStartListeners[i].OnStartGame();
     }
@@ -38,26 +44,24 @@ public class GameState : ScriptableObject
             m_gameStartListeners.Remove(listener);
     }
     //* ========================================================================================= EVENTS
-    //private List<WinGameListener> m_winGameListeners = new List<WinGameListener>();
+    private List<WinGameListener> m_winGameListeners = new List<WinGameListener>();
     public void WinGame()
     {
         m_win = true;
         m_gameHasStarted = false;
-        // Cursor.lockState = CursorLockMode.None;
-        // Cursor.visible = true;
-        // for (int i = m_winGameListeners.Count - 1; i >= 0; i--)
-        //     m_winGameListeners[i].OnWinGame();
+        for (int i = m_winGameListeners.Count - 1; i >= 0; i--)
+            m_winGameListeners[i].OnWinGame();
     }
-    // public void RegisterListener(WinGameListener listener)
-    // {
-    //     if (!m_winGameListeners.Contains(listener))
-    //         m_winGameListeners.Add(listener);
-    // }
-    // public void UnregisterListener(WinGameListener listener)
-    // {
-    //     if (m_winGameListeners.Contains(listener))
-    //         m_winGameListeners.Remove(listener);
-    // }
+    public void RegisterListener(WinGameListener listener)
+    {
+        if (!m_winGameListeners.Contains(listener))
+            m_winGameListeners.Add(listener);
+    }
+    public void UnregisterListener(WinGameListener listener)
+    {
+        if (m_winGameListeners.Contains(listener))
+            m_winGameListeners.Remove(listener);
+    }
     //* ========================================================================================= EVENTS
     private List<LoseGameListener> m_loseGameListeners = new List<LoseGameListener>();
     public void LoseGame()
