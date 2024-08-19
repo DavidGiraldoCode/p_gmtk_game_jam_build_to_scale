@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameState", menuName = "GameState", order = 0)]

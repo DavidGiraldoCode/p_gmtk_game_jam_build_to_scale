@@ -27,6 +27,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [ ] Design puzzle one - intro
 - [ ] Design puzzle two - explore
 - [ ] Design puzzle two - final
+- [ ] Add a crosshair 
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
 - [ ] Add gun animations
 - [ ] Remove GameObject once they reach a scale threshold
