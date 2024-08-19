@@ -48,3 +48,5 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4
 
 [2] GDC, Math for Game Programmers: Building a Better Jump, (Dec. 12, 2016). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=hG9SzQxaCm8
+
+[3] GDC, Level Design Workshop: Solving Puzzle Design, (Dec. 19, 2017). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=0xBJwrm9C8w
