@@ -3016,16 +3016,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoseGUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3521268575312980198, guid: 60fbb514b8a164d43b5a93fe36b5f634,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8484067471183573411, guid: 60fbb514b8a164d43b5a93fe36b5f634,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

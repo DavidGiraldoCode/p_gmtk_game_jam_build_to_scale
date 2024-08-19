@@ -18,9 +18,16 @@ public class GUIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        m_startGUI.enabled = true;
-        m_loseGUI.enabled = false;
-        m_winGUI.enabled = false;
+        SettingUpAvailableGUIs();
+    }
+    public void SettingUpAvailableGUIs()
+    {
+        if (m_startGUI)
+            m_startGUI.enabled = true;
+        if (m_loseGUI)
+            m_loseGUI.enabled = false;
+        if (m_winGUI)
+            m_winGUI.enabled = false;
     }
 
     public void GUIReactionToStartGame()

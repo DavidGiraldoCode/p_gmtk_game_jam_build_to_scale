@@ -8,7 +8,6 @@ public class LosingTriggerController : MonoBehaviour
         GetComponent<Collider>().isTrigger = true;
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.TryGetComponent<FirstPersonController>(out var fpc)) return;

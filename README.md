@@ -22,12 +22,16 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Start state with UI
 - [x] Lose state with UI
 - [x] Winning state with UI
-- [ ] Reload current level/scene
-- [ ] Reload from scene one
+- [ ] Reload current level/scene (Pressing R)
+- [x] Reload from scene one
 - [ ] Design puzzle one - intro
 - [ ] Design puzzle two - explore
 - [ ] Design puzzle two - final
+- [ ] Fix mouse sensitivity
+- [ ] Add visual style on GUI
+- [ ] Apply texturing to rooms, geometries and hazards
 - [ ] Add a crosshair 
+- [ ] Add a hand holding the gun
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
 - [ ] Add gun animations
 - [ ] Remove GameObject once they reach a scale threshold
@@ -48,3 +52,5 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4
 
 [2] GDC, Math for Game Programmers: Building a Better Jump, (Dec. 12, 2016). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=hG9SzQxaCm8
+
+[3] GDC, Level Design Workshop: Solving Puzzle Design, (Dec. 19, 2017). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=0xBJwrm9C8w
