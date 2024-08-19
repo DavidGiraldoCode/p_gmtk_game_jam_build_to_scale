@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8612118340781946208}
   - component: {fileID: 5642375351477213086}
   - component: {fileID: 488866773323787313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geometry with Scaling Behavior
   m_TagString: Untagged
   m_Icon: {fileID: 0}

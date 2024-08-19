@@ -35,9 +35,15 @@ public class GamePlayManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().name != "LevelOne")
+            so_gameState.StartGame();    
+    }
+
     private void Update()
     {
-        TestingSceneLoading();
+        //TestingSceneLoading();
 
     }
 
