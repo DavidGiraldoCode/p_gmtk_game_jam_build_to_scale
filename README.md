@@ -56,6 +56,9 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 
 ## DevLog
 - Later on, I realized that the CharacterController was not the best option if I wanted to enable the player to be propelled upward by the scaling geometry.
+- The geometries persist on their local scale. There's a need to have a set of elements with pre-defined sizes at local scales of 1.0 so the gun can interact with that.
+- Using a cube manually scaling it makes difficult to limit and define the threshold. Having defined geometries of different shapes and sizes allows for homogeneous scaling.
+- To create a clear feedbck that the geometry has reached it maximun scaling state, they may change color.
 
 ## References
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4
