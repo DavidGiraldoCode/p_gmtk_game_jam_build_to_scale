@@ -1,10 +1,5 @@
-using System.Collections;
-using UnityEditor.SearchService;
-using UnityEditor.VersionControl;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows;
 
 public class GamePlayManager : MonoBehaviour
 {

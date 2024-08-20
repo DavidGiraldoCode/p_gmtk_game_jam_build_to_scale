@@ -29,10 +29,15 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Add a crosshair 
 - [x] Remove GameObject once they reach a minimun scale threshold
 - [x] Change gun with bigger one
+- [x] Apply texturing to rooms, geometries and hazards
+- [x] Import PSX fonts
+- [~] Design Start, Lose and Win GUI
+- [ ] Add diegetic guides to teach mechanics - Level one: "There an obstacle on the way, shrink it", and so
+- [ ] Explain that shapes wont scale more than x2.0
+- [ ] The large shapes on level four and five need to get blocked after scaling it x1.0
+- [ ] On level five, the platform need to be shorter so it wont pass if the player shrinks it
 - [ ] Change color of geometries when reaching max local scale
 - [ ] Create the N pre-defined geometries for scaling and updated them on the levels
-- [ ] Apply texturing to rooms, geometries and hazards
-- [ ] Add diegetic guides to teach mechanics
 - [ ] Add visual style on GUI
 - [ ] Fix mouse sensitivity
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)

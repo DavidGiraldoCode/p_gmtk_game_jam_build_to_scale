@@ -2141,16 +2141,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 918269984}
-    - target: {fileID: 1876811103025538337, guid: 60fbb514b8a164d43b5a93fe36b5f634,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadCurrentScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876811103025538337, guid: 60fbb514b8a164d43b5a93fe36b5f634,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GamePlayManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2971348454625458466, guid: 60fbb514b8a164d43b5a93fe36b5f634,
         type: 3}
       propertyPath: m_Pivot.x

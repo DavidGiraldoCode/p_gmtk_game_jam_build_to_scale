@@ -10,7 +10,7 @@ public class BeamAudioFX : MonoBehaviour
     {
         m_audioSource = GetComponent<AudioSource>();
         m_audioSource.loop = false;
-        m_audioSource.volume = 0.1f;
+        m_audioSource.volume = 0.3f;
     }
 
     public void PlayShrink()
