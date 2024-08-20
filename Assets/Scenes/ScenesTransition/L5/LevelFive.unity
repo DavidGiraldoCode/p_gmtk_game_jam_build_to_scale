@@ -1516,7 +1516,7 @@ Transform:
   m_GameObject: {fileID: 475766920}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.8400002, y: 4.77, z: 2.664}
+  m_LocalPosition: {x: 3.8400002, y: 3.72, z: 2.664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3668,6 +3668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NextSceneTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241118443554680307, guid: faaa2b99201f44810b62a2cebccc3949,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
