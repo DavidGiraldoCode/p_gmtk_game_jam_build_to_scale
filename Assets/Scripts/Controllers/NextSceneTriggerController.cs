@@ -2,9 +2,12 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 public class NextSceneTriggerController : MonoBehaviour
 {
+    private CapsuleCollider m_capColl;
     private void Awake()
     {
-        GetComponent<CapsuleCollider>().isTrigger = true;
+        m_capColl = GetComponent<CapsuleCollider>();
+        m_capColl.isTrigger = true;
+        m_capColl.height = 2.0f;
     }
     private void Start()
     {
