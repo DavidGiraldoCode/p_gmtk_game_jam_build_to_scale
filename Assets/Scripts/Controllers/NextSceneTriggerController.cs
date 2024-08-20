@@ -1,10 +1,10 @@
 using UnityEngine;
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class NextSceneTriggerController : MonoBehaviour
 {
     private void Awake()
     {
-        GetComponent<Collider>().isTrigger = true;
+        GetComponent<CapsuleCollider>().isTrigger = true;
     }
     private void Start()
     {
