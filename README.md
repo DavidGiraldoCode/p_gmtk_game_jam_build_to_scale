@@ -28,7 +28,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Design puzzle two - final
 - [x] Add a crosshair 
 - [x] Remove GameObject once they reach a minimun scale threshold
-- [ ] Change gun with bigger one
+- [x] Change gun with bigger one
 - [ ] Change color of geometries when reaching max local scale
 - [ ] Create the N pre-defined geometries for scaling and updated them on the levels
 - [ ] Apply texturing to rooms, geometries and hazards
