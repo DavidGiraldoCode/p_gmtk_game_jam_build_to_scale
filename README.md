@@ -49,8 +49,8 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 1. A large box is blocking your way, skrink it.
 2. A lava river is in your way, but there is a box you can use to stretch it and cross
 3. Little lava river, use the boxes on the cealing so they can fall on the lava
-3. Scale a prism to push a ball into a pit and jump on top.
-4. Theres a shasm, use the scaling momentum to push a ball to help you cross
+4. Scale a prism to push a ball into a pit and jump on top.
+5. Theres a shasm, use the scaling momentum to push a ball to help you cross
 5. The exit is high up, use the boxes to create a ramp
 6. The way out was hole, use the boxes to create a bridge 
 

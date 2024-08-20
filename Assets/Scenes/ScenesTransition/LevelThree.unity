@@ -888,7 +888,7 @@ PrefabInstance:
         type: 3}
       propertyPath: so_sceneToLoadNext
       value: 
-      objectReference: {fileID: 11400000, guid: 66bcef8547efb4d6d8f06537b784115d,
+      objectReference: {fileID: 11400000, guid: edfa21fa2667a40cbb498c05590da52b,
         type: 2}
     - target: {fileID: 3979081879406734666, guid: 2ae17ca11085142d8badca5ef42b259f,
         type: 3}

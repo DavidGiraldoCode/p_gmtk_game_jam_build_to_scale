@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenesTransition/LevelOne.unity
     guid: 2dc6df3a86f294b08967b927b5b15374
   - enabled: 1
+    path: Assets/Scenes/ScenesTransition/LevelTwo.unity
+    guid: c5655ec9ac6b24572a30e6cfceb86c02
+  - enabled: 1
     path: Assets/Scenes/ScenesTransition/LevelThree.unity
     guid: 2521cb10e190c4178a41732b23a35c34
   - enabled: 1
-    path: Assets/Scenes/ScenesTransition/LevelTwo.unity
-    guid: c5655ec9ac6b24572a30e6cfceb86c02
+    path: Assets/Scenes/ScenesTransition/LevelFour.unity
+    guid: f7f5f8e452e2247e085b958ff20443f0
   m_configObjects: {}
