@@ -30,7 +30,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [ ] Fix mouse sensitivity
 - [ ] Add visual style on GUI
 - [ ] Apply texturing to rooms, geometries and hazards
-- [ ] Add a crosshair 
+- [x] Add a crosshair 
 - [ ] Add a hand holding the gun
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
 - [ ] Add gun animations
