@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059ca0e263b25413ca52501b35bbf028, type: 3}
   m_Name: LevelOne
   m_EditorClassIdentifier: 
-  path: Assets/Scenes/ScenesTransition/LevelOne.unity
+  path: Assets/Scenes/ScenesTransition/L1/LevelOne.unity

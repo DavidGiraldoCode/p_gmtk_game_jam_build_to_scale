@@ -8,10 +8,10 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Apply scaling effect with current scaling factor.
 - [x] Left click to stretch and Right click to shrink.
 - [x] Add soundFX on shrinking, stretching (use the scale factor to alter pitch)
-- [-] Make the scaling a behaviour  
+- [x] Make the scaling a behaviour  
 - [x] Create gun mechanics: shoot a ray, visual FX for both types of scaling
 - [x] Add gun sound FX
-- [~] Add gun cool down before next shoot
+- [x] Add gun cool down before next shoot
 - [x] Gun diegetic HUD
 - [x] Add particles when shooting the ray
 - [x] Review timing between shooting and scaling
@@ -22,19 +22,23 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Start state with UI
 - [x] Lose state with UI
 - [x] Winning state with UI
-- [ ] Reload current level/scene (Pressing R)
 - [x] Reload from scene one
-- [ ] Design puzzle one - intro
-- [ ] Design puzzle two - explore
-- [ ] Design puzzle two - final
-- [ ] Fix mouse sensitivity
-- [ ] Add visual style on GUI
-- [ ] Apply texturing to rooms, geometries and hazards
+- [x] Design puzzle one - intro
+- [x] Design puzzle two - explore
+- [x] Design puzzle two - final
 - [x] Add a crosshair 
-- [ ] Add a hand holding the gun
+- [x] Remove GameObject once they reach a minimun scale threshold
+- [x] Change gun with bigger one
+- [ ] Change color of geometries when reaching max local scale
+- [ ] Create the N pre-defined geometries for scaling and updated them on the levels
+- [ ] Apply texturing to rooms, geometries and hazards
+- [ ] Add diegetic guides to teach mechanics
+- [ ] Add visual style on GUI
+- [ ] Fix mouse sensitivity
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
+- [ ] Add a hand holding the gun
+- [ ] Reload current level/scene (Pressing R)
 - [ ] Add gun animations
-- [ ] Remove GameObject once they reach a scale threshold
 - [ ] Add soundFX on disapearing from shrinking and stretching.
 - [ ] Create a partice system where the Geometry disapeared
 
