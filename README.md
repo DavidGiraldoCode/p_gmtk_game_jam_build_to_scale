@@ -1,5 +1,7 @@
 # GMTK Game Jam 2024 - Build to Scale.
-A FPS puzzle game where you have to scape rooms using a scaling gun.
+An FPS puzzle game where you have to escape rooms using a scaling gun.
+<img width="1242" alt="image" src="https://github.com/user-attachments/assets/54e37ad2-8abc-4f57-8ee5-49dd5efab360">
+
 
 ## Backlog from earliest to latest.
 - [x] Scaling power
@@ -27,47 +29,47 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [x] Design puzzle two - explore
 - [x] Design puzzle two - final
 - [x] Add a crosshair 
-- [x] Remove GameObject once they reach a minimun scale threshold
-- [x] Change gun with bigger one
+- [x] Remove GameObject once they reach a minimum scale threshold
+- [x] Change the gun with a bigger one
 - [x] Apply texturing to rooms, geometries and hazards
 - [x] Import PSX fonts
-- [~] Design Start, Lose and Win GUI
+- [x] Design Start, Lose and Win GUI
 - [ ] Add diegetic guides to teach mechanics - Level one: "There an obstacle on the way, shrink it", and so
-- [ ] Explain that shapes wont scale more than x2.0
-- [ ] The large shapes on level four and five need to get blocked after scaling it x1.0
-- [ ] On level five, the platform need to be shorter so it wont pass if the player shrinks it
-- [ ] Change color of geometries when reaching max local scale
-- [ ] Create the N pre-defined geometries for scaling and updated them on the levels
+- [ ] Explain that shapes won't scale more than x2.0
+- [ ] The large shapes on levels four and five need to get blocked after scaling it x1.0
+- [ ] On level five, the platform needs to be shorter so it won't pass if the player shrinks it
+- [ ] Change the color of geometries when reaching max local scale
+- [ ] Create the N pre-defined geometries for scaling and update them on the levels
 - [ ] Add visual style on GUI
 - [ ] Fix mouse sensitivity
-- [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
+- [ ] Shake the camera on every scaling (depends on the cinemachine FP feature)
 - [ ] Add a hand holding the gun
 - [ ] Reload current level/scene (Pressing R)
 - [ ] Add gun animations
-- [ ] Add soundFX on disapearing from shrinking and stretching.
-- [ ] Create a partice system where the Geometry disapeared
+- [ ] Add soundFX to disappear from shrinking and stretching.
+- [ ] Create a practice system where the Geometry disappeared
 
 ### Puzle anotations [link](https://www.youtube.com/watch?v=zsjC6fa_YBg)
-- Clear objective, the user just needs to figure out how to do it.
-- Clear rules and undertandable limitations
-- A conflict, an asuption, and a revelation.
-- Build on top of the previous knowledge, ramping up in dificulty.
+- Clear objective. The user just needs to figure out how to do it.
+- Clear rules and understandable limitations
+- A conflict, an assumption, and a revelation.
+- Build on top of the previous knowledge, ramping up in difficulty.
 - Steps, solutions, number of mechanics.
 
 ## Puzzles
-1. A large box is blocking your way, skrink it.
+1. A large box is blocking your way, shrink it.
 2. A lava river is in your way, but there is a box you can use to stretch it and cross
-3. Little lava river, use the boxes on the cealing so they can fall on the lava
+3. Little lava river, use the boxes on the ceiling so they can fall on the lava
 4. Scale a prism to push a ball into a pit and jump on top.
-5. Theres a shasm, use the scaling momentum to push a ball to help you cross
-5. The exit is high up, use the boxes to create a ramp
-6. The way out was hole, use the boxes to create a bridge 
+5. Theres a chasm, use the scaling momentum to push a ball to help you cross
+5. The exit is high up; use the boxes to create a ramp
+6. The way out was hole; use the boxes to create a bridge 
 
 ## DevLog
-- Later on, I realized that the CharacterController was not the best option if I wanted to enable the player to be propelled upward by the scaling geometry.
-- The geometries persist on their local scale. There's a need to have a set of elements with pre-defined sizes at local scales of 1.0 so the gun can interact with that.
-- Using a cube manually scaling it makes difficult to limit and define the threshold. Having defined geometries of different shapes and sizes allows for homogeneous scaling.
-- To create a clear feedbck that the geometry has reached it maximun scaling state, they may change color.
+- Later, I realized that the CharacterController was not the best option if I wanted to enable the scaling geometry to propel the player upward.
+- The geometries persist on their local scale. A set of elements with pre-defined sizes at local scales of 1.0 is needed so the gun can interact with that.
+- Using a cube to manually scale makes it difficult to limit and define the threshold. Having defined geometries of different shapes and sizes allows for homogeneous scaling.
+- They may change color to clearly indicate that the geometry has reached its maximum scaling state.
 
 ## References
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4
