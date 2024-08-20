@@ -30,7 +30,7 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - [ ] Fix mouse sensitivity
 - [ ] Add visual style on GUI
 - [ ] Apply texturing to rooms, geometries and hazards
-- [ ] Add a crosshair 
+- [x] Add a crosshair 
 - [ ] Add a hand holding the gun
 - [ ] Shake the camera on every scalling (depends on the cinamachine FP feature)
 - [ ] Add gun animations
@@ -45,8 +45,20 @@ A FPS puzzle game where you have to scape rooms using a scaling gun.
 - Build on top of the previous knowledge, ramping up in dificulty.
 - Steps, solutions, number of mechanics.
 
+## Puzzles
+1. A large box is blocking your way, skrink it.
+2. A lava river is in your way, but there is a box you can use to stretch it and cross
+3. Little lava river, use the boxes on the cealing so they can fall on the lava
+4. Scale a prism to push a ball into a pit and jump on top.
+5. Theres a shasm, use the scaling momentum to push a ball to help you cross
+5. The exit is high up, use the boxes to create a ramp
+6. The way out was hole, use the boxes to create a bridge 
+
 ## DevLog
 - Later on, I realized that the CharacterController was not the best option if I wanted to enable the player to be propelled upward by the scaling geometry.
+- The geometries persist on their local scale. There's a need to have a set of elements with pre-defined sizes at local scales of 1.0 so the gun can interact with that.
+- Using a cube manually scaling it makes difficult to limit and define the threshold. Having defined geometries of different shapes and sizes allows for homogeneous scaling.
+- To create a clear feedbck that the geometry has reached it maximun scaling state, they may change color.
 
 ## References
 [1] iHeartGameDev, How to Jump in Unity 3D: Jumping Like Mario [Built-In Character Controller #3], (Jul. 18, 2021). Accessed: Aug. 19, 2024. [Online Video]. Available: https://www.youtube.com/watch?v=h2r3_KjChf4
